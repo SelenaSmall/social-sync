@@ -17,12 +17,24 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.13.2",
+    "enzyme-to-json": "^3.3.5",
+    "prettier": "^1.17.1",
     "webpack-dev-server": "^3.4.1"
   },
   "scripts": {
     "test": "jest"
   },
   "jest": {
-    "testPathIgnorePatterns": ["config/webpack"]
+    "testPathIgnorePatterns": [
+      "config/webpack"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/app/javascript/jestSetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
