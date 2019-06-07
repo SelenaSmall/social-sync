@@ -4,11 +4,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Profile from '../components/profile';
+import App from '../app.jsx';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Profile />,
+    <App />,
     document.body.appendChild(document.createElement('div')),
   )
 })

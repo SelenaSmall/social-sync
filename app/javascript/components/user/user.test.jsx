@@ -1,10 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Profile from "./profile";
+import User from "./user";
 
-describe("profile", () => {
-  it("we have jest tests", () => {
-    const wrapper = shallow(<Profile />);
+describe("user.jsx", () => {
+  xit("we have jest tests", () => {
+    const wrapper = shallow(<User />);
     expect(wrapper).toMatchInlineSnapshot(`
       <div>
         Hello !
