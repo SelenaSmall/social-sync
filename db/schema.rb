@@ -10,16 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_035004) do
+ActiveRecord::Schema.define(version: 2019_06_07_030029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "user", force: :cascade do |t|
+  create_table "ProfilesContainer", force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "logo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "password", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users_profiles", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "profile_id"
+    t.string "username", null: false
+    t.string "password", null: false
   end
 
 end

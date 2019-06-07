@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import ProfilesContainer from "../ProfilesContainer/ProfilesContainer";
 
 class User extends React.Component {
   constructor(props) {
@@ -51,6 +52,8 @@ class User extends React.Component {
     return (
       <div>
         <p>Hello ! {currentUser}</p>
+
+        <ProfilesContainer />
 
         {this.renderData(githubProfile)}
       </div>
