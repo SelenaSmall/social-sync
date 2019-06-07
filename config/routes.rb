@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :users, only: [:index, :new, :create, :destroy, :show]
-    resources :profiles, only: [:index, :show]
+    resources :profiles, only: [:index]
   end
 end

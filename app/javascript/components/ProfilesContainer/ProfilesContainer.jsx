@@ -6,7 +6,7 @@ import Profile from "../Profile/Profile"
 class ProfilesContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { profileIds: [] };
+    this.state = { profiles: [] };
     this.getAllProfiles();
   }
 
@@ -14,12 +14,7 @@ class ProfilesContainer extends React.Component {
     return axios.get('http://localhost:3000/api/profiles')
       .then((response) => {
         console.log(response);
-        let profileIds = [];
-
-        response.data.map((profile) => {
-          profileIds.push(profile.id);
-        });
-        this.setState({ profileIds: profileIds });
+        this.setState({ profiles: response.data });
       })
       .catch((error) => {
         console.log(error);
@@ -28,11 +23,17 @@ class ProfilesContainer extends React.Component {
   };
 
   render() {
-    const profileIds = this.state.profileIds;
+    const profiles = this.state.profiles;
 
     return (
       <div>
-        { profileIds.map((profileId) => (<Profile profileId={profileId} />)) }
+        { profiles.map((profile) => (
+          <Profile
+            name={profile.name}
+            url={profile.url}
+            logo={profile.logo} 
+          />
+        )) }
       </div>
     )
   }

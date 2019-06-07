@@ -1,15 +1,15 @@
 module Api
   class ProfilesController < ApplicationController
-    # before_action :set_profile, only: [:show]
-
     def index
       @profiles = Profile.all
-      render json: @profiles
-    end
-
-    def show
-      @profile = Profile.first
-      render json: { profile: @profile }
+      render json: @profiles.each do |profile|
+        {
+          id: profile.id,
+          name: profile.name,
+          url: profile.url,
+          logo: profile.logo
+        }
+      end
     end
 
     private
